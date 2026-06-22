@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive COMP 2831 chapter quiz with immediate grading and feedback.">
+  <title>COMP 2831 Chapter 10 Quiz</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-chapter="10">
+  <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">COMP 2831 Quiz Lab</a><span class="header-note">Business Analysis &amp; Systems Design</span></div></header>
+  <main class="shell">
+    <section class="quiz-head">
+      <a class="back-link" href="index.html">← All chapters</a>
+      <p class="eyebrow" id="chapter-kicker"></p>
+      <h1 id="chapter-title"></h1>
+      <p class="lede" id="chapter-summary"></p>
+      <div class="meta"><span class="pill" id="textbook-map"></span><span class="pill" id="question-count"></span></div>
+    </section>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Chapter progress</span><span id="progress-text">0 answered</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+    <div class="score" id="score" aria-live="polite"></div>
+    <form class="quiz-form" id="quiz-form" novalidate>
+      <div class="actions">
+        <button class="button" type="submit">Submit chapter</button>
+        <button class="button secondary" id="reset-quiz" type="button">Reset answers</button>
+        <span class="notice" id="form-notice" aria-live="polite"></span>
+      </div>
+    </form>
+  </main>
+  <footer class="site-footer"><div class="shell">Answers are checked locally in your browser; no response data is uploaded.</div></footer>
+  <script type="module" src="assets/quiz.js"></script>
+</body>
+</html>
+
