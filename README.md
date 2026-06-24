@@ -17,7 +17,7 @@ An accessible, dependency-free quiz website built from the COMP 2831 course modu
 
 The final three mappings follow subject matter because the course modules and the supplied 13th edition use different chapter sequences.
 
-Each chapter has four multiple-choice questions, three true/false questions, and three short-answer questions. A chapter must be completed before submission. Results show a total score, incorrect responses in red, and correct answers in green. Draft answers remain in browser `localStorage` until reset.
+Each chapter has 25 questions: 14 multiple-choice questions, eight true/false questions, and three short-answer questions. A chapter must be completed before submission. Results show a total score, incorrect responses in red, and correct answers in green. Draft answers remain in browser `localStorage` until reset.
 
 ## Run locally
 

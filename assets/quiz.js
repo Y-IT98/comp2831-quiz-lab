@@ -5,6 +5,7 @@ const form = document.querySelector("#quiz-form");
 const scoreBox = document.querySelector("#score");
 const progressText = document.querySelector("#progress-text");
 const progressBar = document.querySelector("#progress-bar");
+const progressTrack = progressBar.parentElement;
 const storageKey = `comp2831-quiz-${chapter.id}`;
 const typeLabel = { mc: "Multiple choice", tf: "True or false", short: "Short answer" };
 
@@ -14,6 +15,7 @@ document.querySelector("#chapter-title").textContent = chapter.title;
 document.querySelector("#chapter-summary").textContent = chapter.summary;
 document.querySelector("#textbook-map").textContent = chapter.textbookChapter;
 document.querySelector("#question-count").textContent = `${chapter.questions.length} questions`;
+progressTrack.setAttribute("aria-valuemax", chapter.questions.length);
 
 const escapeHtml = (value) => String(value)
   .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
@@ -63,7 +65,7 @@ function updateProgress() {
   const answered = chapter.questions.filter((_, index) => isAnswered(index)).length;
   progressText.textContent = `${answered} of ${chapter.questions.length} answered`;
   progressBar.style.width = `${answered / chapter.questions.length * 100}%`;
-  progressBar.parentElement.setAttribute("aria-valuenow", answered);
+  progressTrack.setAttribute("aria-valuenow", answered);
 }
 
 function saveAnswers() {
