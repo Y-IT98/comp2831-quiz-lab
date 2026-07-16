@@ -45,6 +45,7 @@ h1 { margin: 0; max-width: 850px; font-size: clamp(2rem, 5vw, 4rem); line-height
 .progress-track { height: 8px; margin-top: 7px; overflow: hidden; border-radius: 999px; background: #dce4ec; }
 .progress-bar { width: 0; height: 100%; background: var(--brand); transition: width .2s; }
 .quiz-form { padding: 18px 0 70px; }
+.quiz-section { margin: 34px 0 12px; color: var(--brand-dark); font-size: 1.35rem; }
 .question { margin: 0 0 18px; padding: 24px; border: 1px solid var(--line); border-left: 5px solid transparent; border-radius: 12px; background: var(--card); }
 .question.correct { border-left-color: var(--good); }
 .question.incorrect { border-left-color: var(--bad); background: var(--bad-bg); }

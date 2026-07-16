@@ -1,6 +1,7 @@
 import { chapterById } from "./quiz-data.js";
 
 const chapter = chapterById(document.body.dataset.chapter);
+const quizLabel = chapter.quizLabel ?? `Chapter ${chapter.id}`;
 const form = document.querySelector("#quiz-form");
 const scoreBox = document.querySelector("#score");
 const progressText = document.querySelector("#progress-text");
@@ -9,8 +10,8 @@ const progressTrack = progressBar.parentElement;
 const storageKey = `comp2831-quiz-${chapter.id}`;
 const typeLabel = { mc: "Multiple choice", tf: "True or false", short: "Short answer" };
 
-document.title = `Chapter ${chapter.id}: ${chapter.title} | COMP 2831 Quiz`;
-document.querySelector("#chapter-kicker").textContent = `${chapter.module} · Chapter ${chapter.id}`;
+document.title = `${quizLabel}: ${chapter.title} | COMP 2831 Quiz`;
+document.querySelector("#chapter-kicker").textContent = `${chapter.module} · ${quizLabel}`;
 document.querySelector("#chapter-title").textContent = chapter.title;
 document.querySelector("#chapter-summary").textContent = chapter.summary;
 document.querySelector("#textbook-map").textContent = chapter.textbookChapter;
@@ -32,6 +33,9 @@ const renderOptions = (question, index) => {
 };
 
 form.insertAdjacentHTML("afterbegin", chapter.questions.map((question, index) => `
+  ${question.section && (index === 0 || chapter.questions[index - 1].section !== question.section)
+    ? `<h2 class="quiz-section">${escapeHtml(question.section)}</h2>`
+    : ""}
   <fieldset class="question" data-index="${index}">
     <legend><span class="q-kicker">Question ${index + 1} · ${typeLabel[question.type]}</span>${escapeHtml(question.prompt)}</legend>
     ${question.type === "short"
@@ -136,7 +140,7 @@ form.addEventListener("submit", (event) => {
   });
   const percentage = Math.round(correct / chapter.questions.length * 100);
   scoreBox.classList.add("show");
-  scoreBox.innerHTML = `<span class="q-kicker">Chapter ${chapter.id} result</span><strong>${correct}/${chapter.questions.length} · ${percentage}%</strong><p>Review the marked questions below. Correct answers are green; incorrect responses are red.</p>`;
+  scoreBox.innerHTML = `<span class="q-kicker">${quizLabel} result</span><strong>${correct}/${chapter.questions.length} · ${percentage}%</strong><p>Review the marked questions below. Correct answers are green; incorrect responses are red.</p>`;
   scoreBox.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 

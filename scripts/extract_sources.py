@@ -18,7 +18,7 @@ MODULE_GLOB = "week*/Module *.pdf"
 TEXTBOOK_GLOB = "*Systems_Analysis_and_Design*.pdf"
 # The course slides use an older chapter sequence after Chapter 6. These are
 # the subject-matched chapters in the supplied 13th-edition textbook.
-TEXTBOOK_CHAPTERS = {1, 2, 4, 5, 6, 7, 9, 10}
+TEXTBOOK_CHAPTERS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 
 
 def extract_pdf(path: Path) -> str:

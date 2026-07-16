@@ -19,6 +19,10 @@ The final three mappings follow subject matter because the course modules and th
 
 Each chapter has 25 questions: 14 multiple-choice questions, eight true/false questions, and three short-answer questions. A chapter must be completed before submission. Results show a total score, incorrect responses in red, and correct answers in green. Draft answers remain in browser `localStorage` until reset.
 
+## Final exam practice
+
+The **Final Exam Practice Quiz** covers textbook Chapters 3, 7, 8, 10, and 11. It has 50 questions: eight multiple-choice questions, one true/false question, and one short-answer question from each covered chapter.
+
 ## Run locally
 
 No site dependencies are required.
